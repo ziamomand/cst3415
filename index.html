@@ -38,4 +38,31 @@
                     <h3>Order</h3>
                     <input type="radio" id="asc" value="asc" @change="order" v-model="order">
                     <label for="asc">Ascending</label><br>
-                    
+                </div>
+                <div class="d-flex flex-wrap">
+                    <div class="ml-2 mr-2 mt-2 mb-2 card card-body justify-content-between" style="width:300px;" v-for="lesson in sortedLessons" >
+                        <div class="d-flex flex-row justify-content-between">
+                            <p>
+                                <strong>Subject</strong>: {{ lesson.subject }}<br>
+                                <strong>Price</strong>: £{{ lesson.price }}<br>
+                                <strong>Location</strong>: {{ lesson.location }}<br>
+                                <strong>Spaces</strong>: {{ lesson.spaces }}
+                            </p>
+                            <img v-bind:src=lesson.icon height="80" class="ml-5">
+                        </div>
+                        <div v-if="lesson.spaces > 0">
+                            <button class="btn btn-block btn-primary" @click="addToCart(lesson)">Add to cart</button>
+                        </div>
+                        <div v-else>
+                            <button class="btn btn-block btn-danger" disabled>No space available</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+        <script src="./lessons.js"></script>
+        <script src="./index.js"></script>
+    </body>
+</html>

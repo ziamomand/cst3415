@@ -7,3 +7,25 @@
     
     <title>Tutoring</title>
 </head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-light bg-light d-flex flex-row justify-content-between">
+            <a href="./index.html">Go Back</a>
+            <div class="navbar-brand">Coursework 1</div>
+        </nav><br>
+        <div class="container">
+            <div class="card">
+                <h3 class="card-header card-title">Your Cart</h3>
+                <div class="card-body m-3">
+                    <div class="ml-2 mr-2 mt-2 mb-2 card card-body justify-content-between" v-for="(lesson, index) in lessons" >
+                        <div class="d-flex flex-row justify-content-between">
+                            <p>
+                                <strong>Subject</strong>: {{ lesson.subject }}<br>
+                                <strong>Price</strong>: £{{ lesson.price }}<br>
+                                <strong>Location</strong>: {{ lesson.location }}<br>
+                                <strong>Spaces</strong>: {{ lesson.spaces }}
+                            </p>
+                            <div class="d-flex flex-column">
+                                <img v-bind:src=lesson.icon height="60" wdith="60" class="">
+                                <button class="btn btn-danger btn-block mt-1" style="width: 60px" @click="removeFromCart(index)">x</button> 
+                            </div>

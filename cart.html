@@ -29,3 +29,30 @@
                                 <img v-bind:src=lesson.icon height="60" wdith="60" class="">
                                 <button class="btn btn-danger btn-block mt-1" style="width: 60px" @click="removeFromCart(index)">x</button> 
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-header card-title">Checkout</h3>
+                <div class="card-body m-3">
+                    <input type="text" class="form-control" @keyUp="checkDetails" v-model="name"  placeholder="Name"><br>
+                    <input type="phone" class="form-control"  @keyUp="checkDetails" v-model="phone" placeholder="Phone number"><br>
+                </div>
+                <div class="card-footer" v-if="checkoutAllowed">
+                    <button class="btn btn-primary btn-block" @click="checkout">Checkout</button>
+                </div>
+                <div class="card-footer" v-else>
+                    <p class="badge badge-danger">Please check the form</p><br>
+                    <button class="btn btn-danger btn-block" disabled>Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="./cart.js"></script>
+</body>
+</html>

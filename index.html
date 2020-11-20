@@ -7,12 +7,34 @@
     
     <title>Tutoring</title>
 </head>
-<body>
+    <body>
         
-    <div id="app" class="">
-        <nav class="navbar navbar-light bg-light d-flex flex-row justify-content-between">
-            <a class="navbar-brand" href="#">Coursework 1</a>
-            
-            <div v-if="showCart">
-                <a href="./cart.html">Cart</a>
-            </div>
+        <div id="app" class="">
+            <nav class="navbar navbar-light bg-light d-flex flex-row justify-content-between">
+                <a class="navbar-brand" href="#">Coursework 1</a>
+                
+                <div v-if="showCart">
+                    <a href="./cart.html">Cart</a>
+                </div>
+            </nav>
+            <br>
+            <div class="container-fluid d-flex flex-row">
+                <div class="col-2">
+                    <h3>Sort by</h3>
+                    <input type="radio" id="subject" value="subject" @change="order" v-model="sortBy">
+                    <label for="subject">Subject</label><br>
+
+                    <input type="radio" id="location" value="location" @change="order" v-model="sortBy">
+                    <label for="location">Location</label><br>
+
+                    <input type="radio" id="price" value="price" @change="order" v-model="sortBy">
+                    <label for="price">Price</label><br>
+
+                    <input type="radio" id="spaces" value="spaces" @change="order" v-model="sortBy">
+                    <label for="spaces">Spaces</label><br>
+                    
+                    <hr>
+
+                    <h3>Order</h3>
+                    <input type="radio" id="asc" value="asc" @change="order" v-model="order">
+                    <label for="asc">Ascending</label><br>
